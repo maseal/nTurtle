@@ -36,6 +36,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interpreter\Token.cs" />
+    <Compile Include="Interpreter\TokenCategory.cs" />
+    <Compile Include="Interpreter\TokenCategoryFactory.cs" />
+    <Compile Include="Interpreter\TokenType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
