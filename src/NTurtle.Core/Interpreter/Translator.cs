@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace NTurtle.Core.Interpreter
 {
-    public class Translator
+    public partial class Translator
     {
         protected Translator()
         {
@@ -101,25 +101,6 @@ namespace NTurtle.Core.Interpreter
             SetExamples();
             return true;
         }
-
-        private void SetDictionary()
-        {
-            lookToTypeMap.Clear();
-            defaultToLocalizedMap.Clear();
-
-            string localizedCommandLook;
-            
-            // TODO: looks definitions
-        }
-
-        private void SetExamples()
-        {
-            examples.Clear();
-            string exampleName;
-            
-            // TODO: looks definitions
-        }
-
 
         public const string DefaultLanguageCode = "en_US";
         private List<string> localizer;

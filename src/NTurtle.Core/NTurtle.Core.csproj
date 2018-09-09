@@ -46,6 +46,8 @@
     <Compile Include="Interpreter\TokenCategoryFactory.cs" />
     <Compile Include="Interpreter\TokenType.cs" />
     <Compile Include="Interpreter\Translator.cs" />
+    <Compile Include="Interpreter\Translator.Definitions.cs" />
+    <Compile Include="Interpreter\Translator.Examples.cs" />
     <Compile Include="Interpreter\Value.cs" />
     <Compile Include="Interpreter\ValueType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
