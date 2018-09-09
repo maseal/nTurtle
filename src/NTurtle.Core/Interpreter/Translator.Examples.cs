@@ -1,11 +1,11 @@
+using NGettext;
+
 namespace NTurtle.Core.Interpreter
 {
     public partial class Translator
     {
-        private void SetExamples()
+        private void FillTranslatedExamples(Catalog localizer)
         {
-            examples.Clear();
-            string exampleName;
             
             // TODO: looks definitions
         }

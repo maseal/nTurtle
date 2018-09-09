@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
+using NGettext;
 
 namespace NTurtle.Core.Interpreter
 {
@@ -96,14 +98,34 @@ namespace NTurtle.Core.Interpreter
         /// <returns>TRUE is the loading was successful, otherwise FALSE</returns>
         public bool SetLanguage(string langCode)
         {
-            localizer = new List<string> {langCode, DefaultLanguageCode};
-            SetDictionary();
-            SetExamples();
+            var culture = new CultureInfo(langCode); // or DefaultLanguageCode
+            SetDictionary(new Catalog(TranslationsCommandsDomain, TranslationsFolder, culture));
+            SetExamples(new Catalog(TranslationsExamplesDomain, TranslationsFolder, culture));
             return true;
         }
 
+        private void SetDictionary(Catalog localizer)
+        {
+            lookToTypeMap.Clear();
+            defaultToLocalizedMap.Clear();
+            FillTranslatedDictionary(localizer); // see Translator.Definitions.cs
+        }
+
+        private void SetExamples(Catalog localizer)
+        {
+            examples.Clear();
+            FillTranslatedExamples(localizer); // see Translator.Definitions.cs
+        }
+
+        private string GetLocalized(string definition, Catalog localizer)
+        {
+            return localizer.GetString(definition);
+        }
+
         public const string DefaultLanguageCode = "en_US";
-        private List<string> localizer;
+        public const string TranslationsFolder = "./transalations";
+        public const string TranslationsCommandsDomain = "commands";
+        public const string TranslationsExamplesDomain = "examples";
         
         private IDictionary<string, TokenType> lookToTypeMap;
         private IDictionary<string, string> defaultToLocalizedMap;
