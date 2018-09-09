@@ -41,9 +41,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\CharExtensions.cs" />
     <Compile Include="Interpreter\Token.cs" />
     <Compile Include="Interpreter\TokenCategory.cs" />
     <Compile Include="Interpreter\TokenCategoryFactory.cs" />
+    <Compile Include="Interpreter\Tokenizer.cs" />
     <Compile Include="Interpreter\TokenType.cs" />
     <Compile Include="Interpreter\Translator.cs" />
     <Compile Include="Interpreter\Translator.Definitions.cs" />

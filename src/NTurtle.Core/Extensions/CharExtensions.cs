@@ -9,7 +9,8 @@ namespace NTurtle.Core.Extensions
         /// Determines whether the specified character is a word character (equivalent to '\w').
         /// </summary>
         /// <param name="c">The c.</param>
-        public static bool IsWord(this char c) => WordCategories.Contains(char.GetUnicodeCategory(c));
+        public static bool IsWordChar(this char c) => WordLetterCategories.Contains(char.GetUnicodeCategory(c));
+        public static bool IsDigit(this char c) => char.GetUnicodeCategory(c) == UnicodeCategory.DecimalDigitNumber;
 
         public static bool IsBreak(this char c) => (c == '\x0a' || c == '\n');
 
@@ -17,10 +18,9 @@ namespace NTurtle.Core.Extensions
 
         public static bool IsWhiteSpace(this char c) => (c == ' ' || IsTab(c));
 
-        private static readonly HashSet<UnicodeCategory> WordCategories = new HashSet<UnicodeCategory>(
+        private static readonly HashSet<UnicodeCategory> WordLetterCategories = new HashSet<UnicodeCategory>(
             new[]
             {
-                UnicodeCategory.DecimalDigitNumber,
                 UnicodeCategory.UppercaseLetter,
                 UnicodeCategory.ConnectorPunctuation,
                 UnicodeCategory.LowercaseLetter,
