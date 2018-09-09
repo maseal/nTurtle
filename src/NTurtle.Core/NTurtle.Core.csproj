@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\CharExtensions.cs" />
+    <Compile Include="Interpreter\ErrorList.cs" />
+    <Compile Include="Interpreter\ErrorMessage.cs" />
+    <Compile Include="Interpreter\ErrorMessageCode.cs" />
     <Compile Include="Interpreter\Token.cs" />
     <Compile Include="Interpreter\TokenCategory.cs" />
     <Compile Include="Interpreter\TokenCategoryFactory.cs" />
